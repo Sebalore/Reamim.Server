@@ -1,0 +1,105 @@
+{
+  "type" : "record",
+  "name" : "FlightCircleMessage",
+  "namespace" : "com.r39.sufab.messages",
+  "fields" : [ {
+    "name" : "header",
+    "type" : {
+      "type" : "record",
+      "name" : "PrimaryHeader",
+      "fields" : [ {
+        "name" : "messageCounter",
+        "type" : "int",
+        "doc" : "consecutive message counter that is increased upon every transmission",
+        "default" : 0
+      }, {
+        "name" : "timetag",
+        "type" : "long",
+        "doc" : "the offset in [millisec] from 1/1/1970 00:00:00.000",
+        "default" : 0
+      }, {
+        "name" : "schemaName",
+        "type" : "string",
+        "doc" : "the name of the message that this scheme belongs to",
+        "default" : "unspecified_schema"
+      }, {
+        "name" : "schemaVersion",
+        "type" : "string",
+        "doc" : "the version of the schema",
+        "default" : "4.0.0"
+      } ]
+    }
+  }, {
+    "name" : "data",
+    "type" : {
+      "type" : "array",
+      "items" : {
+        "type" : "record",
+        "name" : "FlightCircleData",
+        "fields" : [ {
+          "name" : "basicProperties",
+          "type" : {
+            "type" : "record",
+            "name" : "GeoEntityForQueue",
+            "fields" : [ {
+              "name" : "timetag",
+              "type" : "long",
+              "doc" : "the offset in [millisec] from 1/1/1970 00:00:00.000"
+            }, {
+              "name" : "id",
+              "type" : "string",
+              "doc" : "unique ID"
+            }, {
+              "name" : "geometry",
+              "type" : "bytes",
+              "doc" : "WKB sequence"
+            } ]
+          },
+          "doc" : "the properties that are used by the queue, geo is a polygon point"
+        }, {
+          "name" : "properties",
+          "type" : {
+            "type" : "record",
+            "name" : "FlightCircleProperties",
+            "fields" : [ {
+              "name" : "height",
+              "type" : {
+                "type" : "record",
+                "name" : "Margin",
+                "doc" : "margin [min, max]",
+                "fields" : [ {
+                  "name" : "minValue",
+                  "type" : "double",
+                  "doc" : "minimum"
+                }, {
+                  "name" : "maxValue",
+                  "type" : "double",
+                  "doc" : "maximum"
+                } ]
+              },
+              "doc" : "height margin [m]"
+            }, {
+              "name" : "type",
+              "type" : {
+                "type" : "enum",
+                "name" : "EFlightCircleType",
+                "symbols" : [ "eENTRANCE", "eEXIT", "eWAITING" ]
+              },
+              "doc" : "type of the flight circle"
+            }, {
+              "name" : "radius",
+              "type" : "double",
+              "doc" : "the radius of the circle  [m]"
+            }, {
+              "name" : "name",
+              "type" : [ "null", "string" ],
+              "doc" : "optional name value",
+              "default" : null
+            } ]
+          },
+          "doc" : "the properties of the layer"
+        } ]
+      }
+    }
+  } ]
+}

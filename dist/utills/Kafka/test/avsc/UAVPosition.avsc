@@ -1,0 +1,14 @@
+{
+  "namespace": "com.r39.avro",
+  "name": "UAVPosition",
+  "type": "record",
+  "fields": [
+    { "name": "timestamp", "type": "long" },
+    { "name": "id", "type": "string", "doc": "ID of UAV , tail serial number." },
+    { "name": "type", "type": "string", "doc": "UAV type." },
+    { "name": "longitude", "type": "double" },
+    { "name": "latitude", "type": "double" },
+    { "name": "height", "type": "double" }
+  ]
+}
+
