@@ -6,6 +6,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import resourceRouter from './routes/resourceRouter';
+import initialStateRouter from './routes/initialStateRouter';
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
@@ -22,6 +23,7 @@ app.use(function (req, res, next) {
 });    
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/resources', resourceRouter);
+app.use('/initialstate', initialStateRouter);
 app.get('/', function(req, res) {
   console.log('Get index');
   res.send('OK');

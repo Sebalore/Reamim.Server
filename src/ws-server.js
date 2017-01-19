@@ -5,7 +5,7 @@ import express from 'express';
 import http from 'http';
 import socketIO from 'socket.io';
 
-import initialViewState from './data/storeIntialState';
+import initialState from './data/initialState';
 import resources from './data/resources';
 import UAVPositionTest from './utills/Kafka/test/UAVPositionTest';
 
