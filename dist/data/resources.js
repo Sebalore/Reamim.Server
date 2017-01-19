@@ -14,8 +14,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //------LAYERS AND ENTITY TYPES NAMES --------------
 var UAV = 'UAV';
-var AIRPLANE = 'Airplane';
-var HELICOPTER = 'Helicopter';
+var VISINT = 'VISINT';
+var SIGINT = 'SIGINT';
 
 var DMA = 'DynamicMissionArea';
 var FORBIDEN_FLIGHT_AREA = 'ForbidenFlightArea';
@@ -48,8 +48,8 @@ exports.default = {
         FLIGHT_CIRCLE: FLIGHT_CIRCLE
     },
     ENTITY_TYPE_NAMES: {
-        AIRPLANE: AIRPLANE,
-        HELICOPTER: HELICOPTER,
+        VISINT: VISINT,
+        SIGINT: SIGINT,
         DMA: DMA,
         FORBIDEN_FLIGHT_AREA: FORBIDEN_FLIGHT_AREA,
         FLIGHT_AREA: FLIGHT_AREA,
@@ -82,7 +82,8 @@ exports.default = {
                 IMG: 'icon_11.svg',
                 SCALE: 1
             }
-        }
+        },
+        DISPLAY_OPTIONS: {}
     }), _defineProperty(_ENTITY_TYPES, DMA, {
         LAYER: DMA,
         IMG: 'icon_8.svg',
@@ -94,24 +95,24 @@ exports.default = {
                 SCALE: 0.5
             }
         }
-    }), _defineProperty(_ENTITY_TYPES, AIRPLANE, {
+    }), _defineProperty(_ENTITY_TYPES, VISINT, {
         IMG: 'icon_5.svg',
         LAYER: UAV,
         ACTIONS: {
             ADD: {
                 ID: 'Add',
-                DESC: 'Add a new AIRPLANE',
+                DESC: 'Add a new VISINT',
                 IMG: 'icon_5_black_1.svg',
                 SCALE: 0.5
             }
         }
-    }), _defineProperty(_ENTITY_TYPES, HELICOPTER, {
+    }), _defineProperty(_ENTITY_TYPES, SIGINT, {
         IMG: 'icon_3.svg',
         LAYER: UAV,
         ACTIONS: {
             ADD: {
                 ID: 'Add',
-                DESC: 'Add a new helicopter',
+                DESC: 'Add a new SIGINT',
                 IMG: 'icon_3_black_1.svg',
                 SCALE: 0.5
             }
